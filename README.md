@@ -30,3 +30,8 @@ webpack-dev-serverを起動オプションつきで起動することで様々�
 `--mode` :使用するモードの指定する
 `--debug` :loaderをデバッグモードに切り替える。デフォルトはfalseが設定されている
 `--watch` : ファイルシステムの変更を監視する
+
+### immutable
+`state = {...state, name = "aaa"}`はES6の記法であり`Object.assign`と同一の意味 =>新たにオブジェクトを作成している
+`state.name = action.payload` とすると、前のstateまで更新してしまうため、不変性が損なわれてしまう
+そのため、前者のimmutable なJavaScriptな方法で記載することを意識しなければいけない
