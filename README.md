@@ -21,6 +21,7 @@ $ npm install --save-dev redux-logger
 ```
 $ npm install --save-prod redux-thunk
 $ npm install --save-dev axios
+$ npm install --save-dev redux-promise-middleware
 ```
 
 
@@ -64,8 +65,9 @@ middlewareにthunkを追加することでdispatchで非同期処理関数を使
 ERROR was occured Error: Actions must be plain objects. Use custom middleware for async actions
 ```
 
-### promise
+### createPromise
 thunkかpromiseどちらかを使用する。
+ver6.0から promise => createPromiseに変更があったみたい
 redux-promise-middlewareをインポートすることで使用可能となる。
 middlewareにpromise()を追加することで使用可能となる
 store.dispatch で指定したaction type をprefix にして*_PENDING(非同期処理未完了状態), *_ERROR(非同期処理エラー), *_FULFILLED(非同期処理正常終了) といったsuffix を追加してaction type を発行してくれます。そのため、thunkと比べてソースコードがクリーンになります。
